@@ -1,7 +1,7 @@
 const slides = [
   {
-    section: "WELCOME", title: "Digital leadership", emphasis: "leadership", subtitle: "Use technology to connect, lead, and make a difference.",
-    points: ["Girl Scout Troop 44", "Presented by Joe Dwyer, PhD"], layout: "cover", art: "cover", tone: "lime",
+    section: "WELCOME", title: "Digital leadership", emphasis: "leadership", subtitle: "Girl Scout Troop 44",
+    points: [], layout: "cover", art: "cover", tone: "lime",
     notes: "Welcome the troop and invite everyone to think of one way technology helps people work together."
   },
   {
@@ -189,10 +189,11 @@ function renderSlide(index) {
   currentSlide = Math.max(0, Math.min(index, slides.length - 1));
   const slide = slides[currentSlide];
   const points = slide.points.map((point, pointIndex) => `<li><span class="point-index">${String(pointIndex + 1).padStart(2, "0")}</span><span>${escapeHTML(point)}</span></li>`).join("");
+  const pointList = points ? `<ul class="points">${points}</ul>` : "";
   const title = slide.emphasis
     ? `${escapeHTML(slide.title.replace(slide.emphasis, ""))}<em>${escapeHTML(slide.emphasis)}</em>`
     : escapeHTML(slide.title);
-  content.innerHTML = `<article class="slide-frame" data-layout="${slide.layout || "standard"}" data-tone="${slide.tone}" aria-label="Slide ${currentSlide + 1}: ${escapeHTML(slide.title)}"><div class="slide-copy"><div class="slide-kicker">${escapeHTML(slide.section)} <span>·</span> ${String(currentSlide + 1).padStart(2, "0")}</div><h1>${title}</h1><p class="slide-subtitle">${escapeHTML(slide.subtitle)}</p><ul class="points">${points}</ul>${currentSlide === 0 ? `<div class="byline"><span class="byline-mark" aria-hidden="true">44</span><span>Presented by <strong>Joe Dwyer, PhD</strong></span></div>` : ""}</div><div class="slide-art">${slide.art === "game" ? renderGame() : renderArt(slide)}</div></article>`;
+  content.innerHTML = `<article class="slide-frame" data-layout="${slide.layout || "standard"}" data-tone="${slide.tone}" aria-label="Slide ${currentSlide + 1}: ${escapeHTML(slide.title)}"><div class="slide-copy"><div class="slide-kicker">${escapeHTML(slide.section)} <span>·</span> ${String(currentSlide + 1).padStart(2, "0")}</div><h1>${title}</h1><p class="slide-subtitle">${escapeHTML(slide.subtitle)}</p>${pointList}${currentSlide === 0 ? `<div class="byline"><span class="byline-mark" aria-hidden="true">44</span><span>Presented by <strong>Joe Dwyer, PhD</strong></span></div>` : ""}</div><div class="slide-art">${slide.art === "game" ? renderGame() : renderArt(slide)}</div></article>`;
   document.querySelector("#section-label").textContent = slide.section;
   document.querySelector("#slide-counter").textContent = `${String(currentSlide + 1).padStart(2, "0")} / ${String(slides.length).padStart(2, "0")}`;
   document.querySelector("#progress-fill").style.width = `${((currentSlide + 1) / slides.length) * 100}%`;
