@@ -75,7 +75,6 @@ button:focus-visible, a:focus-visible { outline: 3px solid var(--coral); outline
 .points li { display: grid; grid-template-columns: 25px minmax(0, 1fr); align-items: start; gap: 10px; max-width: 650px; color: #344a42; font-size: clamp(12px, 1.17vw, 15px); line-height: 1.48; }
 .point-index { display: grid; place-items: center; width: 23px; height: 23px; border-radius: 50%; background: color-mix(in srgb, var(--accent) 58%, white); color: var(--ink); font: 10px var(--mono); }
 .byline { display: flex; align-items: center; gap: 9px; margin-top: 25px; color: var(--ink-soft); font-size: 11px; }
-.byline-mark { display: grid; place-items: center; width: 27px; height: 27px; background: var(--forest); border-radius: 8px 2px 8px 2px; color: var(--lime); font-size: 9px; font-weight: 800; }
 .slide-art { position: relative; display: flex; align-items: center; justify-content: center; min-width: 0; }
 .art-board { position: relative; width: min(100%, 365px); min-height: 285px; padding: 22px; border: 1px solid #dce4d9; border-radius: 5px; background: #f7f9f3; }
 .art-label { display: block; margin-bottom: 14px; color: var(--ink-soft); font: 9px var(--mono); text-transform: uppercase; }
