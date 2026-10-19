@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#173a32">
+    <meta name="description" content="A digital leadership presentation for Girl Scout Troop 44, presented by Joe Dwyer, PhD.">
+    <title>Digital Leadership | Girl Scout Troop 44</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="rail" aria-label="Presentation navigation">
+        <a class="brand" href="#slide-1" aria-label="Digital Leadership, go to first slide">
+          <span class="brand-mark" aria-hidden="true">44</span>
+          <span class="brand-copy"><strong>Troop 44</strong><small>Digital Leadership</small></span>
+        </a>
+        <div class="rail-label"><span>THE DECK</span><span id="rail-count">16 SLIDES</span></div>
+        <nav id="slide-list" class="slide-list" aria-label="Slides"></nav>
+        <div class="rail-bottom">
+          <span class="live-dot" aria-hidden="true"></span>
+          <span>Presented by<br><strong>Joe Dwyer, PhD</strong></span>
+        </div>
+      </aside>
+
+      <main class="workspace">
+        <header class="topbar">
+          <div class="topbar-title"><span class="live-dot" aria-hidden="true"></span><span id="section-label">WELCOME</span></div>
+          <div class="topbar-actions">
+            <button id="notes-toggle" class="tool-button" type="button" aria-pressed="false" title="Toggle presenter notes">
+              <span class="button-glyph" aria-hidden="true">N</span><span>Notes</span>
+            </button>
+            <button id="fullscreen-toggle" class="tool-button" type="button" title="Toggle full screen">
+              <span class="button-glyph" aria-hidden="true">⛶</span><span class="full-label">Present</span>
+            </button>
+          </div>
+        </header>
+
+        <section class="presentation-area" aria-label="Slide presentation">
+          <div class="deck-stage" id="deck-stage" aria-live="polite">
+            <div id="slide-content" class="slide-content"></div>
+          </div>
+          <section id="presenter-notes" class="presenter-notes" hidden aria-live="polite">
+            <span class="notes-label">PRESENTER NOTES</span>
+            <p id="notes-copy"></p>
+          </section>
+          <footer class="controls">
+            <div class="progress-block">
+              <span id="slide-counter" class="slide-counter">01 / 16</span>
+              <div class="progress-track" role="progressbar" aria-label="Presentation progress" aria-valuemin="1" aria-valuemax="16" aria-valuenow="1">
+                <span id="progress-fill"></span>
+              </div>
+            </div>
+            <div class="control-hint"><kbd>←</kbd><kbd>→</kbd><span>to navigate</span></div>
+            <div class="control-buttons">
+              <button id="previous-button" class="arrow-button" type="button" aria-label="Previous slide" title="Previous slide">
+                <span aria-hidden="true">←</span>
+              </button>
+              <button id="next-button" class="next-button" type="button">
+                <span>Next</span><span aria-hidden="true">→</span>
+              </button>
+            </div>
+          </footer>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>
